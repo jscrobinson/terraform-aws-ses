@@ -63,7 +63,7 @@ resource "aws_route53_record" "dkim" {
 #Description : Terraform module to create domain mail from on AWS
 resource "aws_ses_domain_mail_from" "default" {
   count            = var.enable_mail_from ? 1 : 0
-  domain           = aws_ses_domain_identity.default.*.domain
+  domain           = aws_ses_domain_identity.default.*.domain[0]
   mail_from_domain = local.stripped_mail_from_domain
 }
 
