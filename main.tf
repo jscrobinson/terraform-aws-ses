@@ -72,7 +72,7 @@ resource "aws_ses_domain_mail_from" "default" {
 #Module      : SPF RECORD
 #Description : Terraform module to create record of SPF for domain mail from
 resource "aws_route53_record" "spf_mail_from" {
-  count   = var.enable_mail_from ? 1 : 0
+  count   = var.enable_spf_domain && var.enable_mail_from ? 1 : 0
   zone_id = var.zone_id
   name    = aws_ses_domain_mail_from.default[count.index].mail_from_domain
   type    = var.txt_type
