@@ -14,5 +14,5 @@ output "ses_user_key_secret" {
 }
 
 output "ses_smtp_password" {
-  value = aws_iam_access_key.ses_smtp_password
+  value = aws_iam_access_key.default.ses_smtp_password
 }
